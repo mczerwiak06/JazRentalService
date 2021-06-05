@@ -15,15 +15,16 @@ public class RentalServiceRestController {
         this.rentalService = rentalService;
     }
 
-    @GetMapping("/movie/{id}")
-    public ResponseEntity<Movie> getMyMovie(@PathVariable Long id){
+    @GetMapping("/get/{id}")
+    public ResponseEntity<Movie> getMovie(@PathVariable Long id){
         return  ResponseEntity.ok(rentalService.getMovie(id));
     }
 
     @PutMapping("/isAvailable/{id}")
     public ResponseEntity<Movie> isAvailable(@PathVariable Long id){
         rentalService.returnMovie(id);
-        return  ResponseEntity.ok(rentalService.getMovie(id));
+        return  ResponseEntity.ok().build();
     }
 
 }
+
