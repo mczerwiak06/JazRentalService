@@ -12,12 +12,17 @@ public class RentalService {
     }
 
     public Movie getMovie(Long id){
-
     String movieServiceAddress = "http://localhost:8080/movies/" + id;
         return restTemplate.getForObject(movieServiceAddress, Movie.class);
     }
+
     public void returnMovie(Long id){
         String movieServiceAddress = "http://localhost:8080/movies/available/" + id;
         restTemplate.put(movieServiceAddress, Movie.class);
+    }
+
+    public void rentMovie(Long id){
+        String movieServiceAdress = "http://localhost:8080/movies/unavailable/" + id;
+        restTemplate.put(movieServiceAdress, Movie.class);
     }
 }

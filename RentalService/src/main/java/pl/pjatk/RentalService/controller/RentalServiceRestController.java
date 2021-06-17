@@ -26,5 +26,9 @@ public class RentalServiceRestController {
         return  ResponseEntity.ok().build();
     }
 
+    @PutMapping("/isUnavailable/{id}")
+    public ResponseEntity<Movie> isUnavailable(@PathVariable Long id){
+        rentalService.rentMovie(id);
+        return ResponseEntity.ok().build();
+    }
 }
-
