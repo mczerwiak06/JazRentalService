@@ -1,10 +1,15 @@
 package pl.pjatk.RentalService.model;
 
-public class Movie {
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+@ApiModel("Data of movie")
+public class Movie {
+    @ApiModelProperty("unique id of movie")
     private Long id;
     private String name;
     private Category category;
+    @ApiModelProperty("Availability of movie")
     private byte isAvailable;
 
     public byte getAvailable() {
@@ -16,6 +21,7 @@ public class Movie {
     }
 
     public Movie(Long id, String name, Category category, byte isAvailable) {
+
         this.id = id;
         this.name = name;
         this.category = category;

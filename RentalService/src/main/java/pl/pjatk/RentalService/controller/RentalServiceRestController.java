@@ -1,5 +1,6 @@
 package pl.pjatk.RentalService.controller;
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.pjatk.RentalService.model.Movie;
@@ -15,6 +16,7 @@ public class RentalServiceRestController {
         this.rentalService = rentalService;
     }
 
+        @ApiOperation(value= "Find movie by id", notes = "show movie with given id")
     @GetMapping("/get/{id}")
     public ResponseEntity<Movie> getMovie(@PathVariable Long id){
         return  ResponseEntity.ok(rentalService.getMovie(id));
